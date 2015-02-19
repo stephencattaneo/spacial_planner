@@ -9,3 +9,13 @@
 #content {
   background: #666666;
 }
+
+#content .object {
+  position: absolute;
+  background: blue;
+}
+
+#dialog {
+  display: none;
+  font-size: 13px;
+}
