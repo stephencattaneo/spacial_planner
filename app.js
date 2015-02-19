@@ -11,6 +11,7 @@ App.prototype.init = function() {
 App.prototype.add_control_listeners = function() {
   $('#controls .add_object').on('click', this.add_object.bind(this));
   $('#controls .update_floor_size').on('click', this.update_floor_size.bind(this));
+  $('#content').on('click', 'button', this.handle_object_buttons.bind(this));
 };
 
 App.prototype.add_object = function(event) {
@@ -23,7 +24,6 @@ App.prototype.add_object = function(event) {
 };
 
 App.prototype.generate_object = function(event) {
-  // debugger;
   var button_container = $('<div>');
   button_container.append($('<button>', {text: '+'}));
   button_container.append($('<button>', {text: '-'}));
@@ -41,6 +41,12 @@ App.prototype.generate_object = function(event) {
   el.draggable();
 
   $("#dialog").dialog("close");
+};
+
+App.prototype.handle_object_buttons = function(event) {
+  var obj = $(event.target).closest('.object');
+  obj.draggable('destroy');
+  obj.remove();
 };
 
 App.prototype.next_zindex = function() {
