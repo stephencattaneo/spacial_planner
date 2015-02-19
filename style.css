@@ -1,0 +1,11 @@
+#controls {
+  border: thin 1px #333;
+}
+
+#controls div {
+  padding: 3px;
+}
+
+#content {
+  background: #666666;
+}
