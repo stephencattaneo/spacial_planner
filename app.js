@@ -3,6 +3,8 @@ App = function(){};
 App.prototype.init = function() {
   this.add_control_listeners();
   this.content = $('#content');
+
+  $('#controls .update_floor_size').trigger('click');
 };
 
 App.prototype.add_control_listeners = function() {
@@ -15,12 +17,12 @@ App.prototype.add_object = function(event) {
 };
 
 App.prototype.calc_pixels = function(selector) {
-  return ($('#controls .height').val() * $(selector).val()) + 'px';
+  return ($('#controls .factor').val() * $(selector).val()) + 'px';
 };
 
 App.prototype.update_floor_size = function(event) {
-  this.height(this.calc_pixels('#controls .height'));
-  this.width(this.calc_pixels('#controls .width'));
+  this.content.height(this.calc_pixels('#controls .height'));
+  this.content.width(this.calc_pixels('#controls .width'));
 };
 
 $(function () {(new App).init()});
